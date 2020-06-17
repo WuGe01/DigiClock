@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數位時鐘計時器</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        .clock1{
+            /* height: 100vh; */
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .clock2{
+            margin:10vh auto 0;
+            background-color: aliceblue;
+            width: 60vw;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap:nowrap;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        #time{
+            font-size: 24rem;
+            margin: 0;
+        }      
+        #date{
+            font-size: 10rem;
+            margin: 5vh 0 0;
+
+        }
+    </style>
 </head>
 <body style="background-color: black;">
-    <div style="height: 100vh;display: flex;justify-content: center;align-items: center;">
+    <div class="clock1">
         <span><img id="clockh1" src="./img/00-01.png"></span>
         <span><img id="clockh2" src="./img/00-01.png"></span>
         <span><img id="clockhh" src="./img/00-11.png"></span>
@@ -16,7 +47,31 @@
         <span><img id="clocks1" src="./img/00-01.png"></span>
         <span><img id="clocks2" src="./img/00-01.png"></span>
     </div>
+    <div class="clock2">
+        <p id="time">12:00:00</p>
+        <p id="date">2020-06-17 WED</p>
+    </div>
     <script>
+        function chgtime() {
+            let n_day=['SUN','MON','TUS','WED','THR','FRI','SAT'];
+            let nt = new Date();
+            let
+                n_hur=chk0(nt.getHours()),
+                n_min=chk0(nt.getMinutes()),
+                n_sec=chk0(nt.getSeconds()),
+                n_yer=nt.getFullYear(),
+                n_mth=chk0(nt.getMonth()+1),
+                n_dat=chk0(nt.getDate()),
+                n_key=nt.getDay();
+                document.getElementById('time').textContent=`${n_hur}:${n_min}:${n_sec}`;
+                document.getElementById('date').textContent=`${n_yer}-${n_mth}-${n_dat} ${n_day[n_key]}`;
+
+        }
+        function chk0(e) {
+            return (e<10)?"0"+e:e;
+        }
+
+        //時鐘轉換
         let AS='0';
         time();
         function time() {
@@ -64,6 +119,7 @@
             }             
         }
         let gotime=setInterval(time,500);
+        let gotime2=setInterval(chgtime,500);
     </script>
 </body>
 </html>
