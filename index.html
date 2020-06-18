@@ -16,37 +16,73 @@
         .clock2{
             margin:10vh auto 0;
             border-radius: 3em;
-            background-color: aliceblue;
-            width: 60vw;
-            height: 50vh;
+            height: 40vh;
             display: flex;
             flex-direction: column;
             flex-wrap:nowrap;
             justify-content: center;
             align-items: center;
             font-family: 'Share Tech Mono', monospace;
+            animation: watch 1s ease 0s infinite alternate;
         }
         #time{
-            font-size: 24rem;
+            font-size: 8rem;
             margin: 0;
         }      
         #date{
-            font-size: 14rem;
+            font-size: 4rem;
             margin: 5vh 0 0;
-
+        }
+        .img-g{
+            width:80px;
+            height:100px;
+        }
+        .img-k{
+            width:40px;
+            height:100px;
+        }
+        .span-a{
+            padding: 5px;
+            animation: watch2 1s ease 0s infinite alternate;
+        }
+        @keyframes watch{
+            0%{
+            text-shadow:0px 0px 5px #D6B571;
+            box-shadow:0px 0px 5px #D6B571;
+            background-color:#D6B57122;
+            border: 10px solid #D6B571;
+            color: #D6B571;
+            width: 45vw;
+            }
+            100%{
+            text-shadow:0px 0px 35px #C8AF64;
+            box-shadow:0px 0px 35px #C8AF64;
+            background-color:#C8AF6433;
+            border: 10px solid #C8AF64;
+            color: #C8AF64;
+            width: 50vw;
+            }
+        }
+        @keyframes watch2{
+            0%{
+            box-shadow:0px 0px 5px #000;
+            }
+            100%{
+            box-shadow:0px 0px 35px #C8AF64;
+            }
         }
     </style>
 </head>
-<body style="background-color: black;">
+<body style="background-color: #0A0A0A;">
     <div class="clock1">
-        <span><img id="clockh1" src="./img/00-01.png"></span>
-        <span><img id="clockh2" src="./img/00-01.png"></span>
-        <span><img id="clockhh" src="./img/00-11.png"></span>
-        <span><img id="clockm1" src="./img/00-01.png"></span>
-        <span><img id="clockm2" src="./img/00-01.png"></span>
-        <span><img id="clockmm" src="./img/00-11.png"></span>
-        <span><img id="clocks1" src="./img/00-01.png"></span>
-        <span><img id="clocks2" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-g" id="clockh1" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-g" id="clockh2" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-k" id="clockhh" src="./img/00-11.png"></span>
+        <span class="span-a"><img class="img-g" id="clockm1" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-g" id="clockm2" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-k" id="clockmm" src="./img/00-11.png"></span>
+        <span class="span-a"><img class="img-g" id="clocks1" src="./img/00-01.png"></span>
+        <span class="span-a"><img class="img-g" id="clocks2" src="./img/00-01.png"></span>
     </div>
     <div class="clock2">
         <p id="time">12:00:00</p>
