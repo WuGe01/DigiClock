@@ -15,6 +15,7 @@
         }
         .clock2{
             margin:10vh auto 0;
+            border-radius: 3em;
             background-color: aliceblue;
             width: 60vw;
             height: 50vh;
@@ -30,7 +31,7 @@
             margin: 0;
         }      
         #date{
-            font-size: 10rem;
+            font-size: 14rem;
             margin: 5vh 0 0;
 
         }
@@ -52,7 +53,8 @@
         <p id="date">2020-06-17 WED</p>
     </div>
     <script>
-        chgtime() :
+        let AS='0';
+        chgtime();
         function chgtime() {
             let n_day=['SUN','MON','TUS','WED','THR','FRI','SAT'];
             let nt = new Date();
@@ -64,16 +66,18 @@
                 n_mth=chk0(nt.getMonth()+1),
                 n_dat=chk0(nt.getDate()),
                 n_key=nt.getDay();
-                document.getElementById('time').textContent=`${n_hur}:${n_min}:${n_sec}`;
                 document.getElementById('date').textContent=`${n_yer}-${n_mth}-${n_dat} ${n_day[n_key]}`;
-
+                if(AS == '0'){
+                document.getElementById('time').textContent=`${n_hur}:${n_min}:${n_sec}`;
+                }else{
+                document.getElementById('time').textContent=`${n_hur} ${n_min} ${n_sec}`;
+                }
         }
         function chk0(e) {
             return (e<10)?"0"+e:e;
         }
 
         //時鐘轉換
-        let AS='0';
         time();
         function time() {
             let h=new Date().getHours().toString();
